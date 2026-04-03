@@ -1,0 +1,9 @@
+{
+  "name": "spec-memo",
+  "version": "1.0.0",
+  "description": "仕様の曖昧点・決定事項・未決定事項をステータス付きで管理するCLIツール",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  }
+}

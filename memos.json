@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "content": "認証方式を検討中",
+    "status": "decided"
+  },
+  {
+    "id": 2,
+    "content": "DBはPostgreSQLで確定",
+    "status": "open"
+  }
+]
