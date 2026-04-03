@@ -4,6 +4,11 @@ const path = require("path");
 const DATA_FILE = path.join(__dirname, "memos.json");
 const STATUS_MAP = { open: "未決定", decided: "決定済み", rejected: "却下" };
 
+// Returns true if the given status is a valid internal value
+function validateStatus(status) {
+  return Object.keys(STATUS_MAP).includes(status);
+}
+
 function load() {
   if (!fs.existsSync(DATA_FILE)) return [];
   return JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
@@ -33,7 +38,7 @@ function list() {
 }
 
 function update(id, status) {
-  if (!Object.keys(STATUS_MAP).includes(status)) {
+  if (!validateStatus(status)) {
     console.error(`ステータスは次のいずれかを指定してください: ${Object.keys(STATUS_MAP).join(", ")}`);
     process.exit(1);
   }
@@ -63,3 +68,5 @@ switch (command) {
   default:
     console.log("使い方: node index.js <add|list|update> [引数]");
 }
+
+module.exports = { validateStatus };
